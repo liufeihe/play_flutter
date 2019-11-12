@@ -1,6 +1,8 @@
 //reference : https://www.jianshu.com/p/5f9ac5e5157f
 import 'package:flutter/material.dart';
 import 'package:flutter_lottie/flutter_lottie.dart';
+import 'package:play_flutter/constant/color.dart';
+
 
 class JsonAnimation extends StatelessWidget{
   LottieController _animationCtl;
@@ -20,13 +22,13 @@ class JsonAnimation extends StatelessWidget{
           child: Column(
             children: <Widget>[
               Container(
-                width: 200,
-                height: 200,
-                color: Colors.white,
+                width: 32,
+                height: 32,
+                color: ColorStyle.bgBlue,
                 child: LottieView.fromFile(
                   filePath: 'assets/animations/radar.json',
                   onViewCreated: animationViewCreated,
-                  autoPlay: true,
+                  autoPlay: false,
                   loop: true,
                 ),
               ),
