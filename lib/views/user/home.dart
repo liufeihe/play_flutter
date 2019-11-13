@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_i18n/flutter_i18n.dart';
+import 'package:play_flutter/utils/locale.dart';
 
 class Home extends StatefulWidget{
   @override
@@ -12,8 +14,10 @@ class _HomeState extends State<Home>{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('首页'),
+        // title: Text(LBLocalizations.of(context).title),
+        title: Text(FlutterI18n.translate(context, 'home.title')),
       ),
+      // drawer: ,
       body: Center(
         child: Column(
           children: <Widget>[
