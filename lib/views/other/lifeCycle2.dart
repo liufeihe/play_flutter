@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:play_flutter/utils/log.dart';
 
-const String _module = 'lifeCycle';
+const String _module = 'lifeCycle2';
 
-class LifeCycle extends StatefulWidget {
+class LifeCycle2 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _LifeCycleState();
+    return _LifeCycleState2();
   }
 }
 
-class _LifeCycleState extends State<LifeCycle> {
+class _LifeCycleState2 extends State<LifeCycle2> {
   int _count = 0;
 
   void _addCount(){
@@ -35,7 +35,7 @@ class _LifeCycleState extends State<LifeCycle> {
   }
 
   @override
-  void didUpdateWidget(LifeCycle oldWidget) {
+  void didUpdateWidget(LifeCycle2 oldWidget) {
     super.didUpdateWidget(oldWidget);
     LogUtils.printStr(LogLevel.Debug, _module, 'didUpdateWidget');
   }
@@ -63,20 +63,10 @@ class _LifeCycleState extends State<LifeCycle> {
     LogUtils.printStr(LogLevel.Debug, _module, 'build');
     return Scaffold(
       appBar: AppBar(
-        title: Text('life cycle'),
+        title: Text('life cycle2'),
       ),
       body: Center(
-        child: Column(
-          children: <Widget>[
-            Text('count: $_count'),
-            FlatButton(
-              child: Text('go lifeCycle2'),
-              onPressed: (){
-                Navigator.pushNamed(context, '/lifeCycle2');
-              },
-            )
-          ],
-        ),
+        child: Text('count: $_count'),
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),

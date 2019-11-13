@@ -14,20 +14,26 @@ class _HomeState extends State<Home>{
       appBar: AppBar(
         title: Text('首页'),
       ),
-      body: Container(
+      body: Center(
         child: Column(
           children: <Widget>[
             GestureDetector(
               onTap: (){
                 Navigator.pushNamed(context, '/animation');
               },
-              child: Text('animation'),
+              child: Padding(
+                padding: EdgeInsets.all(10),
+                child: Text('animation'),
+              ),
             ),
             GestureDetector(
               onTap: (){
                 Navigator.pushNamed(context, '/lifeCycle');
               },
-              child: Text('lifeCylce'),
+              child: Padding(
+                padding: EdgeInsets.all(10),
+                child: Text('lifeCylce'),
+              ),
             ),
           ],
         ),

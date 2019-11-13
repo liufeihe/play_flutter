@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:play_flutter/views/other/animation.dart';
 import 'package:play_flutter/views/other/lifeCycle.dart';
+import 'package:play_flutter/views/other/lifeCycle2.dart';
 import 'package:play_flutter/views/user/home.dart';
 
 void main() => runApp(MyApp());
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
         // '/': (context)=>Home(),
         '/animation':(context)=>JsonAnimation(),
         '/lifeCycle': (context)=>LifeCycle(),
+        '/lifeCycle2': (context)=>LifeCycle2(),
       },
     );
   }
