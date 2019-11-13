@@ -23,6 +23,12 @@ class _HomeState extends State<Home>{
               },
               child: Text('animation'),
             ),
+            GestureDetector(
+              onTap: (){
+                Navigator.pushNamed(context, '/lifeCycle');
+              },
+              child: Text('lifeCylce'),
+            ),
           ],
         ),
       ),
