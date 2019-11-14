@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:play_flutter/utils/log.dart';
 
 const String _module = 'lifeCycle';
@@ -68,7 +69,7 @@ class _LifeCycleState extends State<LifeCycle> {
       body: Center(
         child: Column(
           children: <Widget>[
-            Text('count: $_count'),
+            Text(FlutterI18n.plural(context, 'lifeCycle.clickTimes', _count)),
             FlatButton(
               child: Text('go lifeCycle2'),
               onPressed: (){

@@ -1,5 +1,6 @@
 //reference : https://www.jianshu.com/p/5f9ac5e5157f
 import 'package:flutter/material.dart';
+import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:flutter_lottie/flutter_lottie.dart';
 import 'package:play_flutter/constant/color.dart';
 
@@ -35,27 +36,27 @@ class JsonAnimation extends StatelessWidget{
               Row(
                 children: <Widget>[
                   FlatButton(
-                    child: Text('暂停'),
+                    child: Text(FlutterI18n.translate(context, 'button.play')),
                     onPressed: (){
-                      _animationCtl.pause();
+                      _animationCtl.play();
                     },
                   ),
                   FlatButton(
-                    child: Text('重启'),
-                    onPressed: (){
-                      _animationCtl.resume();
-                    },
-                  ),
-                  FlatButton(
-                    child: Text('停止'),
+                    child: Text(FlutterI18n.translate(context, 'button.stop')),
                     onPressed: (){
                       _animationCtl.stop();
                     },
                   ),
                   FlatButton(
-                    child: Text('开始'),
+                    child: Text(FlutterI18n.translate(context, 'button.pause')),
                     onPressed: (){
-                      _animationCtl.play();
+                      _animationCtl.pause();
+                    },
+                  ),
+                  FlatButton(
+                    child: Text(FlutterI18n.translate(context, 'button.resume')),
+                    onPressed: (){
+                      _animationCtl.resume();
                     },
                   ),
                 ],

@@ -10,6 +10,7 @@ class Home extends StatefulWidget{
 }
 
 class _HomeState extends State<Home>{
+  Locale currentLan;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,6 +42,18 @@ class _HomeState extends State<Home>{
             ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Text('switch'),
+        onPressed: () async {
+          currentLan = FlutterI18n.currentLocale(context);
+          currentLan = Locale(currentLan.languageCode=='en'?'zh-CN':'en');
+          setState(() {
+            currentLan = currentLan;
+          });
+          await FlutterI18n.refresh(context, currentLan);
+          
+        },
       ),
     );
   }
