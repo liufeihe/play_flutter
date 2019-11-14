@@ -3,7 +3,12 @@ app:
 home:
   name: 首页
   title: 首页
+  animation: 动画
+  life-cycle: 生命周期
+animation:
+  title: json动画
 lifeCycle:
+  title: 生命周期
   clickTimes-: 点击 {times} 次
 button:
   play: 开始

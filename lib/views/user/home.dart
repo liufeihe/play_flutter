@@ -28,7 +28,7 @@ class _HomeState extends State<Home>{
               },
               child: Padding(
                 padding: EdgeInsets.all(10),
-                child: Text('animation'),
+                child: Text(FlutterI18n.translate(context, 'home.animation')),
               ),
             ),
             GestureDetector(
@@ -37,7 +37,7 @@ class _HomeState extends State<Home>{
               },
               child: Padding(
                 padding: EdgeInsets.all(10),
-                child: Text('lifeCylce'),
+                child: Text(FlutterI18n.translate(context, 'home.life-cycle')),
               ),
             ),
           ],

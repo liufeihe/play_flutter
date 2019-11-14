@@ -16,7 +16,7 @@ class JsonAnimation extends StatelessWidget{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('json动画'),
+        title: Text(FlutterI18n.translate(context, 'animation.title')),
       ),
       body: Center(
         child: Center(

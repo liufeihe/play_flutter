@@ -7,23 +7,25 @@ import 'package:play_flutter/views/other/lifeCycle.dart';
 import 'package:play_flutter/views/other/lifeCycle2.dart';
 import 'package:play_flutter/views/user/home.dart';
 
-void main() async {
-  final FlutterI18nDelegate flutterI18nDelegate = FlutterI18nDelegate(
-    useCountryCode: false,
-    fallbackFile: 'en',
-    path: 'assets/i18n',
-    forcedLocale: Locale('en'),
-  );
-  await flutterI18nDelegate.load(null);
-  runApp(MyApp(flutterI18nDelegate));
-}
+// void main() async {
+//   final FlutterI18nDelegate flutterI18nDelegate = FlutterI18nDelegate(
+//     useCountryCode: false,
+//     fallbackFile: 'en',
+//     path: 'assets/i18n',
+//     forcedLocale: Locale('en'),
+//   );
+//   await flutterI18nDelegate.load(null);
+//   runApp(MyApp(flutterI18nDelegate));
+// }
+
+void main()=>runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  final FlutterI18nDelegate flutterI18nDelegate;
+  // final FlutterI18nDelegate flutterI18nDelegate;
 
-  MyApp(
-    this.flutterI18nDelegate,
-  );
+  // MyApp(
+  //   this.flutterI18nDelegate,
+  // );
     
   // This widget is the root of your application.
   @override
@@ -54,7 +56,13 @@ class MyApp extends StatelessWidget {
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         // LBLocalizationsDelegate(),
-        flutterI18nDelegate,
+        // flutterI18nDelegate,
+        FlutterI18nDelegate(
+          useCountryCode: false,
+          fallbackFile: 'en',
+          path: 'assets/i18n',
+          forcedLocale: Locale('en'),
+        ),
       ],
       supportedLocales: [
         const Locale('en', 'US'),

@@ -64,7 +64,7 @@ class _LifeCycleState extends State<LifeCycle> {
     LogUtils.printStr(LogLevel.Debug, _module, 'build');
     return Scaffold(
       appBar: AppBar(
-        title: Text('life cycle'),
+        title: Text(FlutterI18n.translate(context, 'lifeCycle.title')),
       ),
       body: Center(
         child: Column(

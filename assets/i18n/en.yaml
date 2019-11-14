@@ -3,7 +3,12 @@ app:
 home:
   name: Home
   title: Home
+  animation: animation
+  life-cycle: lifeCycle
+animation:
+  title: json animation
 lifeCycle:
+  title: life cycle
   clickTimes-0: click {times} time
   clickTimes-1: click {times} time
   clickTimes-2: click {times} times
