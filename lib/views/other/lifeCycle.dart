@@ -11,7 +11,7 @@ class LifeCycle extends StatefulWidget {
   }
 }
 
-class _LifeCycleState extends State<LifeCycle> {
+class _LifeCycleState extends State<LifeCycle> with WidgetsBindingObserver {
   int _count = 0;
 
   void _addCount(){
@@ -26,13 +26,14 @@ class _LifeCycleState extends State<LifeCycle> {
   @override
   void initState() {
     super.initState();
-     LogUtils.printStr(LogLevel.Debug, _module, 'initState');
+    WidgetsBinding.instance.addObserver(this);
+    LogUtils.printStr(LogLevel.Debug, _module, 'initState');
   }
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-     LogUtils.printStr(LogLevel.Debug, _module, 'didChangeDependencies');
+    LogUtils.printStr(LogLevel.Debug, _module, 'didChangeDependencies');
   }
 
   @override
@@ -50,6 +51,7 @@ class _LifeCycleState extends State<LifeCycle> {
   @override
   void dispose() {
     super.dispose();
+    WidgetsBinding.instance.removeObserver(this);
     LogUtils.printStr(LogLevel.Debug, _module, 'dispose');
   }
 
@@ -57,6 +59,12 @@ class _LifeCycleState extends State<LifeCycle> {
   void reassemble() {
     super.reassemble();
     LogUtils.printStr(LogLevel.Debug, _module, 'reassemble');
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    super.didChangeAppLifecycleState(state);
+    LogUtils.printStr(LogLevel.Debug, _module, 'state is $state');
   }
 
   @override

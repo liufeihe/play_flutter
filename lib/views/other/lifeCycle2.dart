@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:play_flutter/utils/log.dart';
+import 'package:play_flutter/widgets/myConfirmDialog.dart';
 
 const String _module = 'lifeCycle2';
 
@@ -66,7 +67,33 @@ class _LifeCycleState2 extends State<LifeCycle2> {
         title: Text('life cycle2'),
       ),
       body: Center(
-        child: Text('count: $_count'),
+        child: Column(
+          children: <Widget>[
+            Text('count: $_count'),
+            FlatButton(
+              child: Text('back to home'),
+              onPressed: (){
+                Navigator.pushNamedAndRemoveUntil(context, '/', (router)=>false);
+              },
+            ),
+            FlatButton(
+              child: Text('back to home with confirm'),
+              onPressed: (){
+                showDialog(
+                  context: context,
+                  builder: (context){
+                    return MyConfirmDialogContent(
+                      msg: '确认回到首页么？',
+                      tapCallback: () async {
+                        Navigator.pushNamedAndRemoveUntil(context, '/', (router)=>false);
+                      },
+                    );
+                  }
+                );
+              },
+            )
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),

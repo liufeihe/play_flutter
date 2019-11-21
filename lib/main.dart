@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
       ),
       home: Home(),
       routes: {
-        // '/': (context)=>Home(),
+        '/home': (context)=>Home(),
         '/animation':(context)=>JsonAnimation(),
         '/lifeCycle': (context)=>LifeCycle(),
         '/lifeCycle2': (context)=>LifeCycle2(),
