@@ -5,6 +5,8 @@ home:
   title: Home
   animation: animation
   life-cycle: lifeCycle
+  scanCode: scanCode
+  aliOss: aliOss
 animation:
   title: json animation
 lifeCycle:

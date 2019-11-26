@@ -28,6 +28,8 @@ dependencies:
   flutter_lottie: ^0.2.0
   flutter_i18n: ^0.8.0
   wifi: ^0.1.5
+  fzxing: ^0.3.0
+  aliossflutter: ^0.0.4
 
 dev_dependencies:
   flutter_test:

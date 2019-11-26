@@ -40,6 +40,24 @@ class _HomeState extends State<Home>{
                 child: Text(FlutterI18n.translate(context, 'home.life-cycle')),
               ),
             ),
+            GestureDetector(
+              onTap: (){
+                Navigator.pushNamed(context, '/scanCode');
+              },
+              child: Padding(
+                padding: EdgeInsets.all(10),
+                child: Text(FlutterI18n.translate(context, 'home.scanCode')),
+              ),
+            ),
+            GestureDetector(
+              onTap: (){
+                Navigator.pushNamed(context, '/aliOss');
+              },
+              child: Padding(
+                padding: EdgeInsets.all(10),
+                child: Text(FlutterI18n.translate(context, 'home.aliOss')),
+              ),
+            ),
           ],
         ),
       ),

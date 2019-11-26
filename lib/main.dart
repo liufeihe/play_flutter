@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n_delegate.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:play_flutter/utils/locale.dart';
+import 'package:play_flutter/views/other/aliOss.dart';
 import 'package:play_flutter/views/other/animation.dart';
 import 'package:play_flutter/views/other/lifeCycle.dart';
 import 'package:play_flutter/views/other/lifeCycle2.dart';
+import 'package:play_flutter/views/other/scanCode.dart';
 import 'package:play_flutter/views/user/home.dart';
 
 // void main() async {
@@ -51,6 +52,8 @@ class MyApp extends StatelessWidget {
         '/animation':(context)=>JsonAnimation(),
         '/lifeCycle': (context)=>LifeCycle(),
         '/lifeCycle2': (context)=>LifeCycle2(),
+        '/scanCode': (context)=>ScanCode(),
+        '/aliOss': (context)=>AliOss(),
       },
       localizationsDelegates: [
         GlobalMaterialLocalizations.delegate,
