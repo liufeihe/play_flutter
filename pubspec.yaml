@@ -30,6 +30,7 @@ dependencies:
   wifi: ^0.1.5
   fzxing: ^0.3.0
   aliossflutter: ^0.0.4
+  webview_flutter: ^0.3.16
 
 dev_dependencies:
   flutter_test:

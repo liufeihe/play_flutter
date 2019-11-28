@@ -6,6 +6,7 @@ import 'package:play_flutter/views/other/animation.dart';
 import 'package:play_flutter/views/other/lifeCycle.dart';
 import 'package:play_flutter/views/other/lifeCycle2.dart';
 import 'package:play_flutter/views/other/scanCode.dart';
+import 'package:play_flutter/views/other/webViewWrapper.dart';
 import 'package:play_flutter/views/user/home.dart';
 
 // void main() async {
@@ -54,6 +55,7 @@ class MyApp extends StatelessWidget {
         '/lifeCycle2': (context)=>LifeCycle2(),
         '/scanCode': (context)=>ScanCode(),
         '/aliOss': (context)=>AliOss(),
+        '/webViewWrapper': (context)=>WebViewWrapper(),
       },
       localizationsDelegates: [
         GlobalMaterialLocalizations.delegate,

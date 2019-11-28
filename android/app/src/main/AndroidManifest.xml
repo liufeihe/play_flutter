@@ -10,6 +10,7 @@
         android:name="io.flutter.app.FlutterApplication"
         android:label="play_flutter"
         android:icon="@mipmap/ic_launcher"
+        android:usesCleartextTraffic="true"
         xmlns:tools="http://schemas.android.com/tools"
         tools:replace="label">
         <activity

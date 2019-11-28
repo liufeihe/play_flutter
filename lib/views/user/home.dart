@@ -58,6 +58,15 @@ class _HomeState extends State<Home>{
                 child: Text(FlutterI18n.translate(context, 'home.aliOss')),
               ),
             ),
+            GestureDetector(
+              onTap: (){
+                Navigator.pushNamed(context, '/webViewWrapper');
+              },
+              child: Padding(
+                padding: EdgeInsets.all(10),
+                child: Text(FlutterI18n.translate(context, 'home.webViewWrapper')),
+              ),
+            ),
           ],
         ),
       ),
