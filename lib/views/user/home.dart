@@ -24,6 +24,15 @@ class _HomeState extends State<Home>{
           children: <Widget>[
             GestureDetector(
               onTap: (){
+                Navigator.pushNamed(context, '/mdns');
+              },
+              child: Padding(
+                padding: EdgeInsets.all(10),
+                child: Text(FlutterI18n.translate(context, 'home.mdns')),
+              ),
+            ),
+            GestureDetector(
+              onTap: (){
                 Navigator.pushNamed(context, '/animation');
               },
               child: Padding(

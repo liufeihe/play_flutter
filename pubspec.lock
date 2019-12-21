@@ -107,6 +107,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.12.5"
+  mdns_plugin:
+    dependency: "direct main"
+    description:
+      name: mdns_plugin
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.1.1"
   meta:
     dependency: transitive
     description:

@@ -8,6 +8,7 @@ home:
   scanCode: scanCode
   aliOss: aliOss
   webViewWrapper: webViewWrapper
+  mdns: mdns
 animation:
   title: json animation
 lifeCycle:

@@ -5,6 +5,7 @@ import 'package:play_flutter/views/other/aliOss.dart';
 import 'package:play_flutter/views/other/animation.dart';
 import 'package:play_flutter/views/other/lifeCycle.dart';
 import 'package:play_flutter/views/other/lifeCycle2.dart';
+import 'package:play_flutter/views/other/mdns.dart';
 import 'package:play_flutter/views/other/scanCode.dart';
 import 'package:play_flutter/views/other/webViewWrapper.dart';
 import 'package:play_flutter/views/user/home.dart';
@@ -56,6 +57,7 @@ class MyApp extends StatelessWidget {
         '/scanCode': (context)=>ScanCode(),
         '/aliOss': (context)=>AliOss(),
         '/webViewWrapper': (context)=>WebViewWrapper(),
+        '/mdns': (context)=>Mdns(),
       },
       localizationsDelegates: [
         GlobalMaterialLocalizations.delegate,
