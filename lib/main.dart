@@ -68,7 +68,7 @@ class MyApp extends StatelessWidget {
           useCountryCode: false,
           fallbackFile: 'en',
           path: 'assets/i18n',
-          forcedLocale: Locale('en'),
+          forcedLocale: Locale('zh-CN'),
         ),
       ],
       supportedLocales: [

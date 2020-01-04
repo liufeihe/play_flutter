@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:play_flutter/utils/log.dart';
+import 'package:play_flutter/widgets/lifeCycle3.dart';
 
 const String _module = 'lifeCycle';
 
@@ -13,6 +14,7 @@ class LifeCycle extends StatefulWidget {
 
 class _LifeCycleState extends State<LifeCycle> with WidgetsBindingObserver {
   int _count = 0;
+  bool _isShow = false;
 
   void _addCount(){
     _count++;
@@ -78,6 +80,20 @@ class _LifeCycleState extends State<LifeCycle> with WidgetsBindingObserver {
         child: Column(
           children: <Widget>[
             Text(FlutterI18n.plural(context, 'lifeCycle.clickTimes', _count)),
+            Visibility(
+              visible: _isShow,
+              child: LifeCycle3(),
+            ),
+            FlatButton(
+              child: Text('hideAndShow'),
+              onPressed: (){
+                if (mounted) {
+                  setState(() {
+                    _isShow = !_isShow;
+                  });
+                }
+              },
+            ),
             FlatButton(
               child: Text('go lifeCycle2'),
               onPressed: (){
