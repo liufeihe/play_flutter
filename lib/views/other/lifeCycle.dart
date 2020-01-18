@@ -16,6 +16,12 @@ class _LifeCycleState extends State<LifeCycle> with WidgetsBindingObserver {
   int _count = 0;
   bool _isShow = false;
 
+  @override
+  Future<bool> didPopRoute() {
+    // TODO: implement didPopRoute
+    return super.didPopRoute();
+  }
+
   void _addCount(){
     _count++;
     if (mounted) {
@@ -96,8 +102,9 @@ class _LifeCycleState extends State<LifeCycle> with WidgetsBindingObserver {
             ),
             FlatButton(
               child: Text('go lifeCycle2'),
-              onPressed: (){
-                Navigator.pushNamed(context, '/lifeCycle2');
+              onPressed: ()async{
+                await Navigator.pushNamed(context, '/lifeCycle2');
+                LogUtils.printStr(LogLevel.Debug, _module, 'hahahahah, lifeCycle2');
               },
             )
           ],

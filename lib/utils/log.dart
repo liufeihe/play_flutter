@@ -1,4 +1,5 @@
 class LogLevel {
+  static const String Info = 'info';
   static const String Debug = 'debug';
 }
 
