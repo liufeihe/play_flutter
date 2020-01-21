@@ -79,12 +79,16 @@ class _LifeCycleState extends State<LifeCycle> with WidgetsBindingObserver {
     LogUtils.printStr(LogLevel.Debug, _module, 'build');
     return Scaffold(
       appBar: AppBar(
-        title: Text(TranslateHandler.text(context, 'home.lifeCycle.title')),
+        title: Text(
+          TranslateHandler.text(context, 'home.lifeCycle.title'),
+        ),
       ),
       body: Center(
         child: Column(
           children: <Widget>[
-            Text(TranslateHandler.text(context, 'home.lifeCycle.clickTimes', _count)),
+            Text(
+              TranslateHandler.text(context, 'home.lifeCycle.clickTimes', {'times': _count.toString()}),
+            ),
             Visibility(
               visible: _isShow,
               child: LifeCycle3(),

@@ -61,7 +61,7 @@ class _LoadingState extends State<Loading> {
   }
 
   String _getPercentStr() {
-    int per = count*100~/countsLimit;
+    int per = _getPercent()*100~/1;
     return per.toString()+'%';
   }
 

@@ -13,7 +13,7 @@ home:
     title: 其他
   lifeCycle:
     title: 生命周期
-    clickTimes-: 点击 {times} 次
+    clickTimes: 点击 {times} 次
 other:
   title: 其他
   loading:
