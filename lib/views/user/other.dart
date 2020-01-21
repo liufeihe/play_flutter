@@ -12,6 +12,7 @@ class Other extends StatefulWidget{
 class _OtherState extends State<Other>{
   Locale currentLan;
   List<String> routeNames = [
+    'loading',
     'mdns',
     'animation',
     'qrCode',

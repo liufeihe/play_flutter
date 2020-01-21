@@ -1,6 +1,7 @@
 app:
     name: L Master
 button:
+  load: 加载
   play: 开始
   stop: 停止
   pause: 暂停
@@ -15,6 +16,8 @@ home:
     clickTimes-: 点击 {times} 次
 other:
   title: 其他
+  loading:
+    title: loading
   mdns:
     title: mdns
   animation: 

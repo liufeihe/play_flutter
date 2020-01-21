@@ -33,6 +33,7 @@ dependencies:
   aliossflutter: ^0.0.4
   webview_flutter: ^0.3.16
   mdns_plugin: ^1.1.4
+  modal_progress_hud: ^0.1.3
 
 dev_dependencies:
   flutter_test:

@@ -6,6 +6,7 @@ import 'package:play_flutter/views/feature/lifeCycle.dart';
 import 'package:play_flutter/views/feature/lifeCycle2.dart';
 import 'package:play_flutter/views/other/aliOss.dart';
 import 'package:play_flutter/views/other/animation.dart';
+import 'package:play_flutter/views/other/loading.dart';
 import 'package:play_flutter/views/other/mdns.dart';
 import 'package:play_flutter/views/other/qrCode.dart';
 import 'package:play_flutter/views/other/webViewWrapper.dart';
@@ -53,14 +54,17 @@ class MyApp extends StatelessWidget {
       home: Home(),
       routes: {
         '/home': (context)=>Home(),
+
         '/other': (context)=>Other(),
         '/lifeCycle': (context)=>LifeCycle(),
         '/lifeCycle2': (context)=>LifeCycle2(),
 
+        '/loading': (context)=>Loading(),
+        '/mdns': (context)=>Mdns(),
         '/animation':(context)=>JsonAnimation(),
         '/qrCode': (context)=>QrCode(),
         '/webViewWrapper': (context)=>WebViewWrapper(),
-        '/mdns': (context)=>Mdns(),
+        
       },
       localizationsDelegates: [
         GlobalMaterialLocalizations.delegate,

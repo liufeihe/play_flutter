@@ -62,26 +62,6 @@ class _WebViewWrapperState extends State<WebViewWrapper> {
               call = call.split('&')[0];
               if (call == 'camera') {
                 _callCamera();
-                // showDialog(
-                //   context: context,
-                //   builder: (context)=>SimpleDialog(
-                //     title: Text('call camera'),
-                //     children: <Widget>[
-                //       SimpleDialogOption(
-                //         child: Text('OK'),
-                //         onPressed: () {
-                //           Navigator.of(context).pop();
-                //         },
-                //       ),
-                //       SimpleDialogOption(
-                //         child: Text('CANCEL'),
-                //         onPressed: () {
-                //           Navigator.of(context).pop();
-                //         },
-                //       )
-                //     ],
-                //   ),
-                // );
               }
               return NavigationDecision.prevent;
             }
@@ -94,33 +74,6 @@ class _WebViewWrapperState extends State<WebViewWrapper> {
           },
           child: Text('setMsg'),
         ),
-        
-        
-        // Center(
-        //   child: Column(
-        //     mainAxisAlignment: MainAxisAlignment.center,
-        //     children: <Widget>[
-        //       Text('barcode: $_barcode\n'),
-        //       RaisedButton(
-        //         onPressed: () {
-        //           try {
-        //             Fzxing
-        //                 .scan(isBeep: true, isContinuous: true)
-        //                 .then((barcodeResult) {
-        //               print("flutter size:" + barcodeResult?.toString());
-        //               setState(() {
-        //                 _barcode = barcodeResult;
-        //               });
-        //             });
-        //           } on PlatformException {
-        //             _barcode.add('Failed to get barcode.');
-        //           }
-        //         },
-        //         child: Text('scan'),
-        //       )
-        //     ],
-        //   ),
-        // ),
       ),
     );
   }

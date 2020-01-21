@@ -26,7 +26,7 @@ class _QrCodeState extends State<QrCode> {
                 onPressed: () {
                   try {
                     Fzxing
-                        .scan(isBeep: true, isContinuous: true)
+                        .scan(isBeep: true, isContinuous: false)
                         .then((barcodeResult) {
                       print("flutter size:" + barcodeResult?.toString());
                       setState(() {
