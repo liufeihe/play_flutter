@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:play_flutter/utils/log.dart';
+import 'package:play_flutter/utils/translate.dart';
 import 'package:play_flutter/widgets/lifeCycle3.dart';
 
 const String _module = 'lifeCycle';
@@ -18,7 +18,6 @@ class _LifeCycleState extends State<LifeCycle> with WidgetsBindingObserver {
 
   @override
   Future<bool> didPopRoute() {
-    // TODO: implement didPopRoute
     return super.didPopRoute();
   }
 
@@ -80,12 +79,12 @@ class _LifeCycleState extends State<LifeCycle> with WidgetsBindingObserver {
     LogUtils.printStr(LogLevel.Debug, _module, 'build');
     return Scaffold(
       appBar: AppBar(
-        title: Text(FlutterI18n.translate(context, 'lifeCycle.title')),
+        title: Text(TranslateHandler.text(context, 'home.lifeCycle.title')),
       ),
       body: Center(
         child: Column(
           children: <Widget>[
-            Text(FlutterI18n.plural(context, 'lifeCycle.clickTimes', _count)),
+            Text(TranslateHandler.text(context, 'home.lifeCycle.clickTimes', _count)),
             Visibility(
               visible: _isShow,
               child: LifeCycle3(),
