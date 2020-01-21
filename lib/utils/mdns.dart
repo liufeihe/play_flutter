@@ -27,6 +27,7 @@ class Delegate implements MDNSPluginDelegate {
     LogUtils.printStr(LogLevel.Info, _module, 'service resolved: port, $port');
     LogUtils.printStr(LogLevel.Info, _module, 'service resolved: txt, $txt');
     
+    MDNS.addResultList(name);
   }
   void onServiceUpdated(MDNSService service){
     LogUtils.printStr(LogLevel.Debug, _module, 'service updated: $service');
@@ -79,10 +80,18 @@ class MDNS {
     return list;
   }
 
-  
-
   static void addServiceItem(name){
     servicesSet.add(name);
+  }
+
+  static addResultList(name){
+    int idx = mdnsResultMap[name];
+    if (idx==null) {
+      mdnsResultMap[name] = mdnsResultList.length;
+      mdnsResultList.add(name);
+    } else {
+      mdnsResultList[idx] = name;
+    }
   }
   
 }

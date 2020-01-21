@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:play_flutter/utils/mdns.dart';
+import 'package:play_flutter/utils/translate.dart';
 
 class Mdns extends StatefulWidget {
   @override
@@ -28,8 +29,17 @@ class _MdnsState extends State<Mdns> {
   
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('mdns'),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          TranslateHandler.text(context, 'other.mdns.title')
+        ),
+      ),
+      body: Column(
+        children: <Widget>[
+          
+        ],
+      ),
     );
   }
 }
