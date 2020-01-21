@@ -1,8 +1,8 @@
 //reference : https://www.jianshu.com/p/5f9ac5e5157f
 import 'package:flutter/material.dart';
-import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:flutter_lottie/flutter_lottie.dart';
 import 'package:play_flutter/constant/color.dart';
+import 'package:play_flutter/utils/translate.dart';
 
 
 class JsonAnimation extends StatelessWidget{
@@ -16,7 +16,7 @@ class JsonAnimation extends StatelessWidget{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(FlutterI18n.translate(context, 'animation.title')),
+        title: Text(TranslateHandler.text(context, 'other.animation.title')),
       ),
       body: Center(
         child: Center(
@@ -36,25 +36,25 @@ class JsonAnimation extends StatelessWidget{
               Row(
                 children: <Widget>[
                   FlatButton(
-                    child: Text(FlutterI18n.translate(context, 'button.play')),
+                    child: Text(TranslateHandler.text(context, 'button.play')),
                     onPressed: (){
                       _animationCtl.play();
                     },
                   ),
                   FlatButton(
-                    child: Text(FlutterI18n.translate(context, 'button.stop')),
+                    child: Text(TranslateHandler.text(context, 'button.stop')),
                     onPressed: (){
                       _animationCtl.stop();
                     },
                   ),
                   FlatButton(
-                    child: Text(FlutterI18n.translate(context, 'button.pause')),
+                    child: Text(TranslateHandler.text(context, 'button.pause')),
                     onPressed: (){
                       _animationCtl.pause();
                     },
                   ),
                   FlatButton(
-                    child: Text(FlutterI18n.translate(context, 'button.resume')),
+                    child: Text(TranslateHandler.text(context, 'button.resume')),
                     onPressed: (){
                       _animationCtl.resume();
                     },

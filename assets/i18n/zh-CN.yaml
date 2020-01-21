@@ -1,17 +1,28 @@
 app:
     name: L Master
-home:
-  name: 首页
-  title: 首页
-  animation: 动画
-  life-cycle: 生命周期
-animation:
-  title: json动画
-lifeCycle:
-  title: 生命周期
-  clickTimes-: 点击 {times} 次
 button:
   play: 开始
   stop: 停止
   pause: 暂停
   resume: 恢复
+  switch: 切换
+home:
+  title: 首页
+  other:
+    title: 其他
+  lifeCycle:
+    title: 生命周期
+    clickTimes-: 点击 {times} 次
+other:
+  title: 其他
+  mdns:
+    title: mdns
+  animation: 
+    title: JSON动画
+  qrCode:
+    title: 扫描二维码
+  aliOss:
+    title: aliOss
+  webViewWrapper:
+    title: webview
+  

@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fzxing/fzxing.dart';
 
-class ScanCode extends StatefulWidget {
+class QrCode extends StatefulWidget {
   @override
-  _ScanCodeState createState() => _ScanCodeState();
+  _QrCodeState createState() => _QrCodeState();
 }
 
-class _ScanCodeState extends State<ScanCode> {
+class _QrCodeState extends State<QrCode> {
   List<String> _barcode;
 
   @override
