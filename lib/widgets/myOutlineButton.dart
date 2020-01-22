@@ -45,6 +45,9 @@ class MyOutlineButton extends StatelessWidget {
       child: FlatButton(
         // borderSide: BorderSide(color: Colors.white, width: 0),
         padding: EdgeInsets.zero,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
+        ),
         child: Text(
           '$text',
           style: TextStyle(
