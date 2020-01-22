@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n_delegate.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:play_flutter/utils/translate.dart';
+import 'package:play_flutter/views/feature/inherit.dart';
 import 'package:play_flutter/views/feature/lifeCycle.dart';
 import 'package:play_flutter/views/feature/lifeCycle2.dart';
 import 'package:play_flutter/views/other/aliOss.dart';
@@ -55,9 +56,11 @@ class MyApp extends StatelessWidget {
       routes: {
         '/home': (context)=>Home(),
 
-        '/other': (context)=>Other(),
+
         '/lifeCycle': (context)=>LifeCycle(),
         '/lifeCycle2': (context)=>LifeCycle2(),
+        '/inherit': (context)=>InheritRoute(),
+        '/other': (context)=>Other(),
 
         '/loading': (context)=>Loading(),
         '/mdns': (context)=>Mdns(),

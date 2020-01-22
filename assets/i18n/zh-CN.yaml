@@ -1,6 +1,7 @@
 app:
     name: L Master
 button:
+  increment: 加 1
   load: 加载
   play: 开始
   stop: 停止
@@ -14,6 +15,8 @@ home:
   lifeCycle:
     title: 生命周期
     clickTimes: 点击 {times} 次
+  inherit:
+    title: Inherit
 other:
   title: 其他
   loading:

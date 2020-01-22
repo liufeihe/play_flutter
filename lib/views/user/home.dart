@@ -14,6 +14,7 @@ class _HomeState extends State<Home>{
   Locale currentLan;
   List<String> routeNames = [
     'lifeCycle',
+    'inherit',
     'other',
   ];
 
