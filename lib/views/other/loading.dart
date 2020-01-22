@@ -99,11 +99,14 @@ class _LoadingState extends State<Loading> {
         body: Center(
           child: Column(
             children: <Widget>[
-              MyOutlineButton(
-                text: TranslateHandler.text(context, 'button.load'),
-                tapCallback: (){
-                  _submit();
-                },
+              Padding(
+                padding: EdgeInsets.only(top: 30),
+                child: MyOutlineButton(
+                  text: TranslateHandler.text(context, 'button.load'),
+                  tapCallback: (){
+                    _submit();
+                  },
+                ),
               )
             ],
           ),

@@ -34,6 +34,7 @@ class _InheritState extends State<InheritRoute> {
               ),
               MyOutlineButton(
                 text: TranslateHandler.text(context, 'button.increment'),
+                showBoxShadow: true,
                 tapCallback: (){
                   if (mounted) {
                     setState(() {
