@@ -1,18 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n_delegate.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:play_flutter/routes.dart';
 import 'package:play_flutter/utils/translate.dart';
-import 'package:play_flutter/views/feature/inherit.dart';
-import 'package:play_flutter/views/feature/lifeCycle.dart';
-import 'package:play_flutter/views/feature/lifeCycle2.dart';
-import 'package:play_flutter/views/other/aliOss.dart';
-import 'package:play_flutter/views/other/animation.dart';
-import 'package:play_flutter/views/other/loading.dart';
-import 'package:play_flutter/views/other/mdns.dart';
-import 'package:play_flutter/views/other/qrCode.dart';
-import 'package:play_flutter/views/other/webViewWrapper.dart';
 import 'package:play_flutter/views/user/home.dart';
-import 'package:play_flutter/views/user/other.dart';
+
 
 // void main() async {
 //   final FlutterI18nDelegate flutterI18nDelegate = FlutterI18nDelegate(
@@ -53,22 +45,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: Home(),
-      routes: {
-        '/home': (context)=>Home(),
-
-
-        '/lifeCycle': (context)=>LifeCycle(),
-        '/lifeCycle2': (context)=>LifeCycle2(),
-        '/inherit': (context)=>InheritRoute(),
-        '/other': (context)=>Other(),
-
-        '/loading': (context)=>Loading(),
-        '/mdns': (context)=>Mdns(),
-        '/animation':(context)=>JsonAnimation(),
-        '/qrCode': (context)=>QrCode(),
-        '/webViewWrapper': (context)=>WebViewWrapper(),
-        
-      },
+      routes: Routes.appRoutes,
       localizationsDelegates: [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
