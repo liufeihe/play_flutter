@@ -58,6 +58,7 @@ class MyApp extends StatelessWidget {
           forcedLocale: Locale('zh-CN'),
         ),
       ],
+      locale: Locale('zh-CN'),
       supportedLocales: TranslateHandler.supportedLocales,
     );
   }
