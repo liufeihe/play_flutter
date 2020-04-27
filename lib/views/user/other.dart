@@ -18,6 +18,7 @@ class _OtherState extends State<Other>{
     'qrCode',
     'aliOss',
     'webViewWrapper',
+    'udp',
   ];
 
   List<Widget> _getWidgets(){

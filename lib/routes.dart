@@ -6,6 +6,7 @@ import 'package:play_flutter/views/other/animation.dart';
 import 'package:play_flutter/views/other/loading.dart';
 import 'package:play_flutter/views/other/mdns.dart';
 import 'package:play_flutter/views/other/qrCode.dart';
+import 'package:play_flutter/views/other/udp.dart';
 import 'package:play_flutter/views/other/webViewWrapper.dart';
 import 'package:play_flutter/views/user/home.dart';
 import 'package:play_flutter/views/user/other.dart';
@@ -24,5 +25,6 @@ class Routes {
       '/animation':(context)=>JsonAnimation(),
       '/qrCode': (context)=>QrCode(),
       '/webViewWrapper': (context)=>WebViewWrapper(),
+      '/udp': (context)=>Udp(),
   };
 }

@@ -1,6 +1,6 @@
+import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
-import 'package:play_flutter/utils/locale.dart';
 import 'package:play_flutter/utils/translate.dart';
 
 class Home extends StatefulWidget{
@@ -17,6 +17,7 @@ class _HomeState extends State<Home>{
     'inherit',
     'other',
   ];
+  var subscription;
 
   List<Widget> _getWidgets(){
     List<Widget> widgets = [];
@@ -24,6 +25,25 @@ class _HomeState extends State<Home>{
       widgets.add(_HomeItem(routeName));
     }
     return widgets;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    subscription = Connectivity().onConnectivityChanged.listen((ConnectivityResult result) {
+      // Got a new connectivity status!
+      print('$result');
+    });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+
+    if (subscription!=null) {
+      subscription.cancel();
+    }
   }
 
   @override

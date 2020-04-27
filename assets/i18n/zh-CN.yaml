@@ -31,4 +31,6 @@ other:
     title: aliOss
   webViewWrapper:
     title: webview
+  udp:
+    title: udp
   
