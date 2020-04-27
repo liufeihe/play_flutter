@@ -19,6 +19,7 @@ class _OtherState extends State<Other>{
     'aliOss',
     'webViewWrapper',
     'udp',
+    'test',
   ];
 
   List<Widget> _getWidgets(){

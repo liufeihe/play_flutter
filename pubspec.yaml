@@ -37,6 +37,7 @@ dependencies:
   percent_indicator: ^2.1.1+1
   flutter_redux: ^0.6.0
   udp: ^3.0.3
+  shared_preferences: ^0.5.4
 
 dev_dependencies:
   flutter_test:

@@ -33,4 +33,6 @@ other:
     title: webview
   udp:
     title: udp
+  test:
+    title: 测试
   
