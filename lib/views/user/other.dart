@@ -16,7 +16,7 @@ class _OtherState extends State<Other>{
     'mdns',
     'animation',
     'qrCode',
-    'aliOss',
+    // 'aliOss',
     'webViewWrapper',
     'udp',
     'test',
