@@ -1,9 +1,9 @@
 import 'dart:async';
-import 'dart:io';
+// import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:multicast_dns/multicast_dns.dart';
-import 'package:play_flutter/utils/mdns.dart';
+import 'package:play_flutter/multi_dns/multi_dns.dart';
+// import 'package:play_flutter/utils/mdns.dart';
 import 'package:play_flutter/utils/translate.dart';
 
 class Mdns extends StatefulWidget {
@@ -20,7 +20,7 @@ class _MdnsState extends State<Mdns> {
   Timer timer;
 
   void _startMdns() {
-    MDNS.startMDNS('_lebai._tcp.');
+    // MDNS.startMDNS('_lebai._tcp.');
   }
 
   void _startMDNSClient() async {
@@ -50,7 +50,7 @@ class _MdnsState extends State<Mdns> {
     client = MDnsClient();
     await client.start();
     _checkMdnsClient();
-    timer = Timer.periodic(Duration(seconds: 10), (timer) async {
+    timer = Timer.periodic(Duration(seconds: 5), (timer) async {
       _checkMdnsClient();
     });
   }
@@ -58,7 +58,8 @@ class _MdnsState extends State<Mdns> {
   void _checkMdnsClient() async {
     const String name = '_lebai._tcp.local';
     final bool verbose = true;//args.contains('--verbose') || args.contains('-v');
-    services = Set<String>();
+    client.clear();
+    // services = Set<String>();
     await for (PtrResourceRecord ptr in client
         .lookup<PtrResourceRecord>(ResourceRecordQuery.serverPointer(name))) {
       // if (verbose) {
@@ -82,9 +83,7 @@ class _MdnsState extends State<Mdns> {
           // }
           // print('Service instance found at '
           //     '${srv.target}:${srv.port} with ${ip.address}.');
-          services.add('${srv.target}:${srv.port}, ${ip.address.address}');
-          print(services.length);
-          print(services);
+          services.add('${srv.target}, ${ip.address.address}:${srv.port}');
         }
         // await for (IPAddressResourceRecord ip
         //     in client.lookup<IPAddressResourceRecord>(
@@ -97,6 +96,8 @@ class _MdnsState extends State<Mdns> {
         // }
       }
     }
+    print(services.length);
+    print(services);
     setState(() {
       services = services;
     });
@@ -105,9 +106,14 @@ class _MdnsState extends State<Mdns> {
   List<Widget> _getWidgets(){
     List<Widget> widgets = [];
     widgets.add(Text('${services.length}'));
+    List<String> texts = [];
     for(var service in services){
+      texts.add(service);
+    }
+    texts.sort();
+    for(var text in texts){
       widgets.add(Text(
-        service,
+        text,
       ));
     }
     return widgets;
@@ -142,6 +148,8 @@ class _MdnsState extends State<Mdns> {
         ),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: _getWidgets()
         // <Widget>[
         //   FlatButton(onPressed: (){
