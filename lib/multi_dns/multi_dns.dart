@@ -114,15 +114,35 @@ class MDnsClient {
       _sockets.add(_incoming);
     }
 
+    // _mDnsAddress = mDnsAddressIPv6;
     _mDnsAddress ??= _incoming.address.type == InternetAddressType.IPv4
         ? mDnsAddressIPv4
         : mDnsAddressIPv6;
+    print(_mDnsAddress);
 
     final List<NetworkInterface> interfaces =
         await interfacesFactory(listenAddress.type);
+    
+    // List<NetworkInterface> interfaces2 = [];
+    // List<NetworkInterface> interfaces3 = await NetworkInterface.list(
+    //   type: InternetAddressType.IPv4,
+    //   includeLinkLocal: false,
+    //   includeLoopback: false,
+    // );
+    // for (NetworkInterface interface in interfaces3) {
+    //   // Create a socket for sending on each adapter.
+    //   print(interface);
+    //   if (interface.name == 'en0') {
+    //     interfaces2.add(interface);
+    //   }
+    // }
+    // if (interfaces2.length==0) {
+    //   interfaces2 = interfaces;
+    // }
 
     for (NetworkInterface interface in interfaces) {
       // Create a socket for sending on each adapter.
+      print(interface);
       final InternetAddress targetAddress = interface.addresses[0];
       final RawDatagramSocket socket = await _rawDatagramSocketFactory(
         targetAddress,
@@ -146,8 +166,13 @@ class MDnsClient {
           interface.index,
         ));
       }
-      // Join multicast on this interface.
-      _incoming.joinMulticast(_mDnsAddress, interface);
+      try {
+        // Join multicast on this interface.
+        _incoming.joinMulticast(_mDnsAddress, interface);
+      } catch (e) {
+        print(e);
+      }
+      
     }
     _incoming.listen(_handleIncoming);
     _started = true;

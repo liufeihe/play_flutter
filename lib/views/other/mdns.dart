@@ -1,10 +1,12 @@
 import 'dart:async';
+import 'dart:io';
 // import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:play_flutter/multi_dns/multi_dns.dart';
 // import 'package:play_flutter/utils/mdns.dart';
 import 'package:play_flutter/utils/translate.dart';
+// import 'package:udp/udp.dart';
 
 class Mdns extends StatefulWidget {
   @override
@@ -119,11 +121,37 @@ class _MdnsState extends State<Mdns> {
     return widgets;
   }
 
+  void _startUdpReceive(){
+    // InternetAddress multicastAddress = new InternetAddress('239.10.10.100');
+    int multicastPort = 4545;
+    InternetAddress multicastAddress = new InternetAddress('224.0.0.251');
+    // int multicastPort = 5353;
+
+    RawDatagramSocket.bind(
+      InternetAddress.anyIPv4, 
+      multicastPort,
+      reuseAddress: true,
+      reusePort: true
+    ).then((RawDatagramSocket s){
+      print('Datagram socket ready to receive');
+      print('${s.address.address}:${s.port}');
+      s.joinMulticast(multicastAddress);
+      print('multicast group joined');
+      s.listen((RawSocketEvent event) {
+        Datagram d = s.receive();
+        if (d==null) return;
+        String msg = new String.fromCharCodes(d.data).trim();
+        print('Datagram from ${d.address.address}:${d.port}: ${msg}');
+      });
+    });
+  }
+
   @override
   void initState() {
     super.initState();
     // _startMdns();
-    _startMDNSClient();
+    // _startMDNSClient();
+    _startUdpReceive();
   }
 
   @override
