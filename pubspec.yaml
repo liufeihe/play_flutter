@@ -40,6 +40,8 @@ dependencies:
   udp: ^3.0.3
   shared_preferences: ^0.5.4
   # multicast_lock: ^0.0.5
+  # flutter_nsd: ^1.0.0-alpha02
+  bonsoir: ^0.1.2+2
 
 dev_dependencies:
   flutter_test:

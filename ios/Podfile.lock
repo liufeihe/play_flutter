@@ -1,4 +1,6 @@
 PODS:
+  - bonsoir (0.1.2):
+    - Flutter
   - connectivity (0.0.1):
     - Flutter
     - Reachability
@@ -25,6 +27,7 @@ PODS:
     - Flutter
 
 DEPENDENCIES:
+  - bonsoir (from `.symlinks/plugins/bonsoir/ios`)
   - connectivity (from `.symlinks/plugins/connectivity/ios`)
   - Flutter (from `Flutter`)
   - flutter_lottie (from `.symlinks/plugins/flutter_lottie/ios`)
@@ -40,6 +43,8 @@ SPEC REPOS:
     - Reachability
 
 EXTERNAL SOURCES:
+  bonsoir:
+    :path: ".symlinks/plugins/bonsoir/ios"
   connectivity:
     :path: ".symlinks/plugins/connectivity/ios"
   Flutter:
@@ -56,6 +61,7 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/wifi/ios"
 
 SPEC CHECKSUMS:
+  bonsoir: 8ef4e0ac3c66a4aba0f99ec70bc9f6fad7d2eadf
   connectivity: 6e94255659cc86dcbef1d452ad3e0491bb1b3e75
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
   flutter_lottie: c1fd7e92e771209f8b623119646c15201c5e8c87

@@ -2,7 +2,9 @@ import 'dart:async';
 import 'dart:io';
 // import 'dart:io';
 
+import 'package:bonsoir/bonsoir.dart';
 import 'package:flutter/material.dart';
+import 'package:play_flutter/utils/flutterNsd.dart';
 import 'package:play_flutter/multi_dns/multi_dns.dart';
 // import 'package:play_flutter/utils/mdns.dart';
 import 'package:play_flutter/utils/translate.dart';
@@ -16,7 +18,8 @@ class Mdns extends StatefulWidget {
 }
 
 class _MdnsState extends State<Mdns> {
-
+  final flutterNsd = FlutterNsd();
+  BonsoirDiscovery discovery;
   MDnsClient client;
   Set<String> services = Set<String>();
   Timer timer;
@@ -121,6 +124,53 @@ class _MdnsState extends State<Mdns> {
     return widgets;
   }
 
+  void _initFlutterNsd() async {
+    await flutterNsd.discoverServices('_lebai._tcp.');
+    checkFlutterNsd();
+    timer = Timer.periodic(Duration(seconds: 5), (timer) async {
+      checkFlutterNsd();
+    });
+  }
+
+  void checkFlutterNsd() async {
+    final stream = flutterNsd.stream;
+    services = Set<String>();
+    await for (final nsdServiceInfo in stream) {
+      // print('discovered service name: ${nsdServiceInfo.name}');
+      // print('discovered service host: ${nsdServiceInfo.hostname}');
+      // print('discovered service port: ${nsdServiceInfo.port}');
+      var service = '${nsdServiceInfo.hostname}:${nsdServiceInfo.port}, ${nsdServiceInfo.name}';//, ${nsdServiceInfo.addresses}';
+      services.add(service);
+    }
+    print(services.length);
+    print(services);
+  }
+
+  void _initNsd() async {
+    String type = '_lebai._tcp';
+
+    // Once defined, we can start the discovery :
+    discovery = BonsoirDiscovery(type: type);
+    await discovery.ready;
+    await discovery.start();
+
+    // If you want to listen to the discovery :
+    discovery.eventStream.listen((event) {
+      if (event.type == BonsoirDiscoveryEventType.DISCOVERY_SERVICE_RESOLVED) {
+        print('Service found : ${event.service.toJson()}');
+        services.add('${event.service.toJson()}');
+        setState(() {
+          services = services;
+        });
+      } else if (event.type == BonsoirDiscoveryEventType.DISCOVERY_SERVICE_LOST) {
+        print('Service lost : ${event.service.toJson()}');
+      }
+    });
+
+    // // Then if you want to stop the discovery :
+    // await discovery.stop();
+  }
+
   void _startUdpReceive(){
     // InternetAddress multicastAddress = new InternetAddress('239.10.10.100');
     int multicastPort = 4545;
@@ -151,7 +201,9 @@ class _MdnsState extends State<Mdns> {
     super.initState();
     // _startMdns();
     // _startMDNSClient();
-    _startUdpReceive();
+    // _startUdpReceive();
+    // _initFlutterNsd();
+    _initNsd();
   }
 
   @override
@@ -165,6 +217,9 @@ class _MdnsState extends State<Mdns> {
       timer.cancel();
       timer = null;
     }
+    if (flutterNsd!=null) {
+      flutterNsd.stopDiscovery();
+    }
   }
   
   @override
@@ -175,16 +230,18 @@ class _MdnsState extends State<Mdns> {
           TranslateHandler.text(context, 'other.mdns.title')
         ),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: _getWidgets()
-        // <Widget>[
-        //   FlatButton(onPressed: (){
-        //     _startMDNSClient();
-        //   }, child: Text('start mdns'))
-        // ],
-      ),
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: _getWidgets()
+          // <Widget>[
+          //   FlatButton(onPressed: (){
+          //     _startMDNSClient();
+          //   }, child: Text('start mdns'))
+          // ],
+        ),
+      )
     );
   }
 }

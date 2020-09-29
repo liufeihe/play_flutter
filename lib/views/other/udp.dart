@@ -19,37 +19,55 @@ class _UdpState extends State<Udp> {
   Set<String> ips = Set<String>();
 
   void createListener() async {
-    multicastEndpoint = Endpoint.multicast(InternetAddress("224.0.0.251"), port: Port(5353));
-    receiver = await UDP.bind(multicastEndpoint);
-    receiver.listen((datagram) {
-      if (datagram != null) {
-        var str = String.fromCharCodes(datagram?.data);
-        count++;
-        print('receive: $count, address: ${datagram.address}, data: $str');
-        ips.add(datagram.address.host);
-        print('${ips.length}, $ips');
-        // print(String.fromCharCodes(datagram.data));
-        // stdout.write(str);
-      }
+    // multicastEndpoint = Endpoint.multicast(InternetAddress("224.0.0.251"), port: Port(5353));
+    // receiver = await UDP.bind(multicastEndpoint);
+    // receiver.listen((datagram) {
+    //   if (datagram != null) {
+    //     var str = String.fromCharCodes(datagram?.data);
+    //     count++;
+    //     print('receive: $count, address: ${datagram.address}, data: $str');
+    //     ips.add(datagram.address.host);
+    //     print('${ips.length}, $ips');
+    //     // print(String.fromCharCodes(datagram.data));
+    //     // stdout.write(str);
+    //   }
+    // });
+    // InternetAddress multicastAddress = new InternetAddress('239.10.10.100');
+    // int multicastPort = 4545;
+    InternetAddress multicastAddress = new InternetAddress('224.0.0.251');
+    int multicastPort = 5353;
+    
+
+    RawDatagramSocket.bind(InternetAddress.anyIPv4, multicastPort, reuseAddress: true, reusePort: true).then((RawDatagramSocket s){
+      print('Datagram socket ready to receive');
+      print('${s.address.address}:${s.port}');
+      s.joinMulticast(multicastAddress);
+      print('multicast group joined');
+      s.listen((RawSocketEvent event) {
+        Datagram d = s.receive();
+        if (d==null) return;
+        String msg = new String.fromCharCodes(d.data).trim();
+        print('Datagram from ${d.address.address}:${d.port}: ${msg}');
+      });
     });
   }
 
   void _startUdp() async {
     createListener();
 
-    var sender = await UDP.bind(multicastEndpoint);//Endpoint.any());
-    var data = {
-      'qname': "_lebai._tcp.",
-      "qtype": 16,
-      // "UNICAST-RESPONSE": 0,
-      "qclass": 1,
-    };
-    String dataStr = json.encode(data);
-    // print(dataStr.codeUnits);
+    // var sender = await UDP.bind(multicastEndpoint);//Endpoint.any());
+    // var data = {
+    //   'qname': "_lebai._tcp.",
+    //   "qtype": 16,
+    //   // "UNICAST-RESPONSE": 0,
+    //   "qclass": 1,
+    // };
+    // String dataStr = json.encode(data);
+    // // print(dataStr.codeUnits);
   
-    await sender.send(dataStr.codeUnits, multicastEndpoint);
-    await Future.delayed(Duration(seconds:5));
-    sender.close();
+    // await sender.send(dataStr.codeUnits, multicastEndpoint);
+    // await Future.delayed(Duration(seconds:5));
+    // sender.close();
   }
 
   @override
